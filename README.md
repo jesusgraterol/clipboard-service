@@ -14,34 +14,26 @@ npm install -S clipboard-service
 
 ### Usage
 
-```tsx
-...
+```typescript
 import { ClipboardService } from 'clipboard-service';
 
-const CodeSnippet = ({ code }) => (
-  <div className="relative">
-    {
-      ClipboardService.isCompatible && (
-        <Button
-          className='absolute top-2 right-2'
-          aria-label='Click to copy the content to Clipboard'
-          onClick={async () => {
-            try {
-              await ClipboardService.writeText(code);
-            } catch (e) {
-              console.error(e);
-            }
-          }}
-        >
-          <Copy className='w-4 h-4' />
-        </Button>
-      )
-    }
-    <pre>{code}</pre>
-  </div>
-);
-```
+// check if the Clipboard API is supported by the browser
+if (ClipboardService.isCompatible) {
+  // Write text to the system clipboard
+  try {
+    await ClipboardService.writeText(code);
+  } catch (e) {
+    console.error(e);
+  }
 
+  // Request text from the system clipboard
+  try {
+    const otpToken = await ClipboardService.readText();
+  } catch (e) {
+    console.error(e);
+  }
+}
+```
 
 
 
