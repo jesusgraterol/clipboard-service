@@ -14,22 +14,32 @@ npm install -S clipboard-service
 
 ### Usage
 
-Register the Service Worker:
-
-```typescript
+```tsx
+...
 import { ClipboardService } from 'clipboard-service';
 
-...
-```
-
-<br/>
-
-...:
-
-```typescript
-import { ClipboardService } from 'clipboard-service';
-
-...
+const CodeSnippet = ({ code }) => (
+  <div className="relative">
+    {
+      ClipboardService.isCompatible && (
+        <Button
+          className='absolute top-2 right-2'
+          aria-label='Click to copy the content to Clipboard'
+          onClick={async () => {
+            try {
+              await ClipboardService.writeText(code);
+            } catch (e) {
+              console.error(e);
+            }
+          }}
+        >
+          <Copy className='w-4 h-4' />
+        </Button>
+      )
+    }
+    <pre>{code}</pre>
+  </div>
+);
 ```
 
 
@@ -41,20 +51,32 @@ import { ClipboardService } from 'clipboard-service';
 ## Types
 
 <details>
-  <summary><code>IAppInstallerService</code></summary>
+  <summary><code>IClipboardItem</code></summary>
   
-  The service in charge of managing the PWA's Installation process.
+  Represents an item that can be copied to or read from the clipboard. For more information, visit: [ClipboardItem](https://developer.mozilla.org/en-US/docs/Web/API/ClipboardItem).
+
   ```typescript
-  interface IAppInstallerService {
+  type IClipboardItem = ClipboardItem;
+  ```
+</details>
+
+<details>
+  <summary><code>IClipboardService</code></summary>
+    
+
+  Object in charge of interacting with the Clipboard API.
+
+  ```typescript
+  type IClipboardService = {
     // properties
-    installationPromptOutcome: IInstallationPromptOutcome | undefined;
-    appInstalled: boolean | undefined;
-    runningInstalledApp: boolean;
+    isSupported: boolean;
 
     // actions
-    canAppBeInstalled: () => boolean;
-    installApp: () => Promise<void>;
-  }
+    write: (data: IClipboardItem[]) => Promise<void>;
+    writeText: (data: string) => Promise<void>;
+    read: () => Promise<IClipboardItem[]>;
+    readText: () => Promise<string>;
+  };
   ```
 </details>
 
