@@ -9,7 +9,7 @@ The `clipboard-service` package is a lightweight, easy-to-use library that simpl
 
 Install the package:
 ```bash
-npm install -S clipboard-service
+npm i -S clipboard-service
 ```
 
 ### Usage
@@ -44,18 +44,20 @@ if (ClipboardService.isCompatible) {
 
 <details>
   <summary><code>IClipboardItem</code></summary>
+  <br/>
   
   Represents an item that can be copied to or read from the clipboard. For more information, visit: [ClipboardItem](https://developer.mozilla.org/en-US/docs/Web/API/ClipboardItem).
 
   ```typescript
   type IClipboardItem = ClipboardItem;
   ```
+  <br/>
 </details>
 
 <details>
   <summary><code>IClipboardService</code></summary>
+  <br/>
     
-
   Object in charge of interacting with the Clipboard API.
 
   ```typescript
@@ -70,6 +72,7 @@ if (ClipboardService.isCompatible) {
     readText: () => Promise<string>;
   };
   ```
+  <br/>
 </details>
 
 
@@ -106,28 +109,3 @@ npm run test:unit
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-
-
-
-<br/>
-
-## Deployment
-
-Install dependencies:
-```bash
-npm install
-```
-
-
-Build the library:
-```bash
-npm start
-```
-
-
-Publish to `npm`:
-```bash
-npm publish
-```
