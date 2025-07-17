@@ -15,17 +15,14 @@ const clipboardServiceFactory = (): IClipboardService => {
    ********************************************************************************************** */
 
   // indicates if the Clipboard API is supported by the user's browser
-  const __isSupported: boolean = Boolean(window)
-    && Boolean(window.navigator)
-    && Boolean(window.navigator.clipboard)
-    && typeof window.navigator.clipboard.read === 'function'
-    && typeof window.navigator.clipboard.readText === 'function'
-    && typeof window.navigator.clipboard.write === 'function'
-    && typeof window.navigator.clipboard.writeText === 'function';
-
-
-
-
+  const __isSupported: boolean =
+    Boolean(window) &&
+    Boolean(window.navigator) &&
+    Boolean(window.navigator.clipboard) &&
+    typeof window.navigator.clipboard.read === 'function' &&
+    typeof window.navigator.clipboard.readText === 'function' &&
+    typeof window.navigator.clipboard.write === 'function' &&
+    typeof window.navigator.clipboard.writeText === 'function';
 
   /* **********************************************************************************************
    *                                            HELPERS                                           *
@@ -38,13 +35,11 @@ const clipboardServiceFactory = (): IClipboardService => {
    */
   const __validateAvailability = (): void => {
     if (!__isSupported) {
-      throw new Error(encodeError('The Clipboard API is not supported by the browser.', 'UNSUPPORTED_API'));
+      throw new Error(
+        encodeError('The Clipboard API is not supported by the browser.', 'UNSUPPORTED_API'),
+      );
     }
   };
-
-
-
-
 
   /* **********************************************************************************************
    *                                            ACTIONS                                           *
@@ -103,10 +98,6 @@ const clipboardServiceFactory = (): IClipboardService => {
     return window.navigator.clipboard.readText();
   };
 
-
-
-
-
   /* **********************************************************************************************
    *                                         MODULE BUILD                                         *
    ********************************************************************************************** */
@@ -124,18 +115,10 @@ const clipboardServiceFactory = (): IClipboardService => {
   });
 };
 
-
-
-
-
 /* ************************************************************************************************
  *                                        GLOBAL INSTANCE                                         *
  ************************************************************************************************ */
 const ClipboardService = clipboardServiceFactory();
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
