@@ -1,6 +1,6 @@
 {
   "name": "clipboard-service",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The clipboard-service package is a lightweight, easy-to-use library that simplifies interaction with the browser’s Clipboard API. With ClipboardService, you can easily read from and write to the clipboard with just a few lines of code.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,11 +38,11 @@
     "eslint-config-airbnb-typescript": "18.0.0",
     "eslint-config-prettier": "10.1.5",
     "prettier": "3.6.2",
-    "ts-lib-builder": "1.0.7",
+    "ts-lib-builder": "1.0.8",
     "typescript": "5.8.2",
     "vitest": "3.0.7"
   },
   "dependencies": {
-    "error-message-utils": "1.1.5"
+    "error-message-utils": "1.1.6"
   }
 }

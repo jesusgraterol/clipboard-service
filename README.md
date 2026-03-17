@@ -18,7 +18,7 @@ npm i -S clipboard-service
 import { ClipboardService } from 'clipboard-service';
 
 // check if the Clipboard API is supported by the browser
-if (ClipboardService.isCompatible) {
+if (ClipboardService.isSupported) {
   // write text to the system clipboard
   try {
     await ClipboardService.writeText(code);
