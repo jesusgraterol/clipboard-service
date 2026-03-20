@@ -1,6 +1,6 @@
 {
   "name": "clipboard-service",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The clipboard-service package is a lightweight, easy-to-use library that simplifies interaction with the browser’s Clipboard API. With ClipboardService, you can easily read from and write to the clipboard with just a few lines of code.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -43,6 +43,6 @@
     "vitest": "3.0.7"
   },
   "dependencies": {
-    "error-message-utils": "1.1.6"
+    "error-message-utils": "1.2.1"
   }
 }
